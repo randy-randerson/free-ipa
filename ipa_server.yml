@@ -1,0 +1,15 @@
+---
+
+- name: Install IPA Server
+  hosts: ipa_server
+  gather_facts: no
+  become: yes
+  collections:
+    - freeipa.ansible_freeipa
+  vars:
+    ansible_user: acthomps
+  vars_files:
+    - vars/main.yml
+  roles:
+    - role: ipaserver
+      state: present
